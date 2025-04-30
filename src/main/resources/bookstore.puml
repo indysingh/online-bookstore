@@ -1,0 +1,46 @@
+@startuml
+skinparam packageStyle rectangle
+skinparam componentStyle uml2
+
+package "Controller Layer" {
+  [BookController] --> [BookService]
+  [CustomerController] --> [CustomerService]
+  [BookController] --> [PurchaseService]
+  [BookController] --> [LoyaltyService]
+}
+
+package "Service Layer" {
+  [BookService] --> [BookRepository]
+  [CustomerService] --> [CustomerRepository]
+  [PurchaseService] --> [BookRepository]
+  [PurchaseService] --> [CustomerRepository]
+  [PurchaseService] --> [PricingStrategyFactory]
+  [LoyaltyService] --> [CustomerRepository]
+}
+
+package "Model & DTO Layer" {
+  [Book]
+  [Customer]
+  [PurchaseRequest]
+  [PurchaseResponse]
+  [BookType]
+}
+
+package "Repository Layer" {
+  [BookRepository]
+  [CustomerRepository]
+}
+
+package "Pricing Strategy" {
+  [PriceCalculator]
+  [RegularCalculator]
+  [NewReleaseCalculator]
+  [OldEditionCalculator]
+  [PricingStrategyFactory]
+  [PricingStrategyFactory] --> [PriceCalculator]
+  [PriceCalculator] <|-- [RegularCalculator]
+  [PriceCalculator] <|-- [NewReleaseCalculator]
+  [PriceCalculator] <|-- [OldEditionCalculator]
+}
+
+@enduml
