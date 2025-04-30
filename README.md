@@ -65,8 +65,6 @@ The documentation includes:
 - Request and response models
 - Error codes and examples
 
-> 📌 **Note**: Make sure you have the `springdoc-openapi-starter-webmvc-ui` dependency configured!
-
 
 ### 📊 H2 Console
 
@@ -134,13 +132,12 @@ com.sportygroup.bookstore
 - Kept tech stack lightweight: Spring Boot + H2 + Gradle.
 - Left out authentication, caching, and advanced validation to prioritize core business logic.
 - Designed system for easy future extension (e.g., promo codes, user roles, wishlist, etc.)
-
+- Swagger/OpenAPI documentation
 ---
 
 ## 🛠 Future Improvements
 
 - Authentication & user management
-- Swagger/OpenAPI documentation
 - Caching book listings for performance
 - Dockerization for production-ready deployment
 
