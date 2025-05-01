@@ -17,7 +17,7 @@ import com.sportygroup.bookstore.purchase.dto.PurchaseResponse;
 import com.sportygroup.bookstore.book.model.Book;
 import com.sportygroup.bookstore.book.service.BookService;
 import com.sportygroup.bookstore.loyalty.service.LoyaltyService;
-import com.sportygroup.bookstore.service.PurchaseService;
+import com.sportygroup.bookstore.service.PurchaseServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -39,7 +39,7 @@ import java.util.List;
 public class BookController {
 
     private final BookService bookService;
-    private final PurchaseService purchaseService;
+    private final PurchaseServiceImpl purchaseService;
     private final LoyaltyService loyaltyService;
 
     /**

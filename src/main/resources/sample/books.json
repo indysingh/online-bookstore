@@ -1,0 +1,207 @@
+[
+  {
+    "title": "Spring Boot Essentials",
+    "type": "REGULAR",
+    "basePrice": 40.0
+  },
+  {
+    "title": "Java 21 Fundamentals",
+    "type": "NEW_RELEASE",
+    "basePrice": 55.0
+  },
+  {
+    "title": "Hibernate in Action",
+    "type": "OLD_EDITION",
+    "basePrice": 35.0
+  },
+  {
+    "title": "Design Patterns Deep Dive",
+    "type": "REGULAR",
+    "basePrice": 50.0
+  },
+  {
+    "title": "Effective Java",
+    "type": "OLD_EDITION",
+    "basePrice": 45.0
+  },
+  {
+    "title": "Kotlin for Java Devs",
+    "type": "REGULAR",
+    "basePrice": 42.0
+  },
+  {
+    "title": "The Pragmatic Programmer",
+    "type": "NEW_RELEASE",
+    "basePrice": 60.0
+  },
+  {
+    "title": "Clean Code",
+    "type": "OLD_EDITION",
+    "basePrice": 38.0
+  },
+  {
+    "title": "Refactoring",
+    "type": "REGULAR",
+    "basePrice": 48.0
+  },
+  {
+    "title": "Modern Microservices",
+    "type": "NEW_RELEASE",
+    "basePrice": 70.0
+  },
+  {
+    "title": "Pro Spring 5",
+    "type": "REGULAR",
+    "basePrice": 47.5
+  },
+  {
+    "title": "Microservices Patterns",
+    "type": "NEW_RELEASE",
+    "basePrice": 68.0
+  },
+  {
+    "title": "Reactive Programming with Spring",
+    "type": "REGULAR",
+    "basePrice": 52.0
+  },
+  {
+    "title": "Mastering Spring Boot 2.0",
+    "type": "OLD_EDITION",
+    "basePrice": 39.0
+  },
+  {
+    "title": "Spring in Action",
+    "type": "REGULAR",
+    "basePrice": 55.0
+  },
+  {
+    "title": "Learning Java",
+    "type": "NEW_RELEASE",
+    "basePrice": 48.0
+  },
+  {
+    "title": "Clean Architecture",
+    "type": "OLD_EDITION",
+    "basePrice": 40.0
+  },
+  {
+    "title": "Java Concurrency in Practice",
+    "type": "REGULAR",
+    "basePrice": 60.0
+  },
+  {
+    "title": "Spring Boot 2.x Cookbook",
+    "type": "NEW_RELEASE",
+    "basePrice": 62.0
+  },
+  {
+    "title": "The Art of Unit Testing",
+    "type": "OLD_EDITION",
+    "basePrice": 37.0
+  },
+  {
+    "title": "Spring Cloud in Action",
+    "type": "REGULAR",
+    "basePrice": 58.0
+  },
+  {
+    "title": "Spring Security in Action",
+    "type": "NEW_RELEASE",
+    "basePrice": 59.0
+  },
+  {
+    "title": "Practical Cloud-Native Java",
+    "type": "OLD_EDITION",
+    "basePrice": 45.0
+  },
+  {
+    "title": "Advanced Spring Boot",
+    "type": "REGULAR",
+    "basePrice": 50.0
+  },
+  {
+    "title": "Cloud Native Java",
+    "type": "NEW_RELEASE",
+    "basePrice": 65.0
+  },
+  {
+    "title": "Spring Boot in Action",
+    "type": "OLD_EDITION",
+    "basePrice": 40.0
+  },
+  {
+    "title": "Java Performance: The Definitive Guide",
+    "type": "REGULAR",
+    "basePrice": 70.0
+  },
+  {
+    "title": "Spring Data Cookbook",
+    "type": "NEW_RELEASE",
+    "basePrice": 63.0
+  },
+  {
+    "title": "Test-Driven Development: By Example",
+    "type": "OLD_EDITION",
+    "basePrice": 39.0
+  },
+  {
+    "title": "Spring 5 Recipes",
+    "type": "REGULAR",
+    "basePrice": 55.0
+  },
+  {
+    "title": "Domain-Driven Design",
+    "type": "NEW_RELEASE",
+    "basePrice": 67.0
+  },
+  {
+    "title": "Hands-On Microservices with Spring Boot 2.0",
+    "type": "OLD_EDITION",
+    "basePrice": 42.0
+  },
+  {
+    "title": "Java 8 in Action",
+    "type": "REGULAR",
+    "basePrice": 48.0
+  },
+  {
+    "title": "Reactive Java with Spring",
+    "type": "NEW_RELEASE",
+    "basePrice": 60.0
+  },
+  {
+    "title": "Spring Boot Admin",
+    "type": "OLD_EDITION",
+    "basePrice": 35.0
+  },
+  {
+    "title": "Building Microservices with Spring Boot",
+    "type": "REGULAR",
+    "basePrice": 52.0
+  },
+  {
+    "title": "Spring Microservices in Action",
+    "type": "NEW_RELEASE",
+    "basePrice": 66.0
+  },
+  {
+    "title": "Spring for Kubernetes",
+    "type": "OLD_EDITION",
+    "basePrice": 46.0
+  },
+  {
+    "title": "Spring Cloud for Architects",
+    "type": "REGULAR",
+    "basePrice": 55.0
+  },
+  {
+    "title": "Mastering Spring Security",
+    "type": "NEW_RELEASE",
+    "basePrice": 58.0
+  },
+  {
+    "title": "Java EE 8 Application Development",
+    "type": "OLD_EDITION",
+    "basePrice": 50.0
+  }
+]

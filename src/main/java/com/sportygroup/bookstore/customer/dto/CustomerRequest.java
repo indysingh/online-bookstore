@@ -1,3 +1,10 @@
 package com.sportygroup.bookstore.customer.dto;
 
-public record CustomerRequest(String name) { }
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
+public record CustomerRequest(
+        @NotBlank(message = "Name is required") String name,
+        @NotBlank(message = "Email is required")
+        @Email(message = "Email should be valid") String email
+) {}

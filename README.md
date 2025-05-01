@@ -4,6 +4,61 @@ A simple backend REST API for managing books, purchases, and loyalty points in a
 
 ---
 
+## 📄 Home Assignment: Backend Engineer
+
+### Overview
+
+The purpose of the assignment is to assess object-oriented analysis and modelling skills, Java coding skills, code structuring, and API design. Take your time on the task, but don’t get too carried away. If you submit a solution that is in any way incomplete, the parts that you decided to focus on are relevant.
+
+You are free to use any tools, libraries, or frameworks. Please include a README covering the decisions made, what was prioritized, what wasn't, and how to run and use the program.
+
+### Time Limit
+
+**One week**, starting from acknowledgment of the email or 1 day after the email was sent without acknowledgment.
+
+### Assignment Scope: Online Bookstore
+
+We want a system for managing:
+
+1. **Inventory of books**
+2. **Purchase and book pricing**
+3. **Customer loyalty points**
+
+#### Inventory
+
+Supports adding, updating, and deleting books.
+
+#### Pricing Rules
+
+Books are grouped in three types:
+
+- **New Releases**: 100% price always.
+- **Regular**: 100%, minus 10% if 3+ are bought.
+- **Old Editions**: 20% off base price; additional 5% off if 3+ are bought.
+
+#### Loyalty Points
+
+- 1 point per purchased book.
+- 10 points = 1 regular or old edition book free (points reset to 0).
+
+#### Requirements
+
+Build a **REST HTTP API** supporting:
+
+- View available books
+- Purchase one or more books and calculate price
+- View customer loyalty points
+
+Include unit tests (bonus).
+
+### Delivery
+
+- Fully executable solution
+- Public GitHub repository
+- README file with documentation and instructions
+
+---
+
 ## 🚀 How to Run and Use
 
 ### ✅ Prerequisites
@@ -14,33 +69,35 @@ A simple backend REST API for managing books, purchases, and loyalty points in a
 
 ### 📦 Build & Run
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/indysingh/bookstore.git
-   cd online-bookstore
-   ```
-
-2. **Build the project**:
-   ```bash
-   ./gradlew clean build
-   ```
-
-3. **Run the app**:
-   ```bash
-   ./gradlew bootRun
-   ```
+```bash
+git clone https://github.com/indysingh/online-bookstore.git
+cd online-bookstore
+./gradlew clean build
+./gradlew bootRun
+```
 
 ### 🌐 API Endpoints
 
 Base URL: `http://localhost:8080/api`
 
 #### 📘 Books
+
 - `GET /books` – Get all available books
 - `POST /books` – Add a new book
+  ```json
+  [
+    {
+      "title": "Spring Boot Essentials",
+      "type": "REGULAR",
+      "basePrice": 40.0
+    }
+  ]
+  ```
 - `PUT /books/{id}` – Update a book
 - `DELETE /books/{id}` – Delete a book
 
 #### 🛒 Purchase
+
 - `POST /purchase` – Purchase books and calculate total price
 
   ```json
@@ -51,25 +108,19 @@ Base URL: `http://localhost:8080/api`
   ```
 
 #### 🎁 Loyalty
+
 - `GET /loyalty/{customerId}` – Get customer loyalty points
 
 ### 📑 API Documentation (Swagger/OpenAPI)
 
-After running the application, you can explore the API using Swagger UI:
+- Swagger UI: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+- OpenAPI JSON Spec: [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
 
-- **Swagger UI**: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
-- **OpenAPI JSON Spec**: [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
+---
 
-The documentation includes:
-- Available endpoints
-- Request and response models
-- Error codes and examples
+## 📊 H2 Console
 
-
-### 📊 H2 Console
-
-Access H2 console: `http://localhost:8080/h2-console`
-
+Access: `http://localhost:8080/h2-console`
 - JDBC URL: `jdbc:h2:mem:testdb`
 - Username: `sa`
 - Password: *(leave empty)*
@@ -80,34 +131,25 @@ Access H2 console: `http://localhost:8080/h2-console`
 
 ### ✅ SOLID Principles
 
-- **S**ingle Responsibility: Services are separated by concern (e.g., `PurchaseService`, `LoyaltyService`, etc.)
-- **O**pen/Closed: Pricing logic uses the **Strategy Pattern** to allow extension without modifying existing code.
-- **L**iskov Substitution: Pricing strategies follow interface contracts.
-- **I**nterface Segregation: Only relevant interfaces exposed in services.
-- **D**ependency Inversion: Controllers depend on service interfaces, injected via Spring.
+- **Single Responsibility**: Services separated by concern
+- **Open/Closed**: Strategy pattern allows pricing extensions
+- **Liskov Substitution**: Strategy interfaces respected
+- **Interface Segregation**: Interfaces expose only what's necessary
+- **Dependency Inversion**: Services injected via Spring
 
-### ✅ Design Patterns Used
+### ✅ Patterns Used
 
-- **Strategy Pattern**: For flexible book pricing based on type and quantity
-- **Factory Pattern**: To retrieve appropriate pricing strategy at runtime
-- **DTOs**: Used for request/response decoupling
-- **Repository Pattern**: Clean separation of persistence logic via Spring Data JPA
+- **Strategy Pattern**: For dynamic pricing
+- **Factory Pattern**: For pricing strategy selection
+- **DTOs**: Request/response decoupling
+- **Repository Pattern**: Clean persistence with Spring Data JPA
 
 ### 🧪 Testing
 
-- **JUnit 5** & **Mockito** for service and controller tests
-- Edge case tests (e.g., no customer, no books, loyalty discounts)
-- `@WebMvcTest` used for REST endpoint validation
-- `@SpringBootTest` used for integration scenarios
-
----
-
-## 🔍 Sample Data
-
-On app startup, some data is auto-loaded into H2 for demo purposes:
-
-- 5 Books (`New Release`, `Regular`, `Old Edition`)
-- 2 Customers with different loyalty points
+- **JUnit 5** & **Mockito** for unit tests
+- Edge case validation (e.g., loyalty discounts)
+- `@WebMvcTest` for controllers
+- `@SpringBootTest` for integration
 
 ---
 
@@ -128,21 +170,22 @@ com.sportygroup.bookstore
 
 ## ✍️ Author Notes
 
-- Focused on clean code, modular structure, and testability.
-- Kept tech stack lightweight: Spring Boot + H2 + Gradle.
-- Left out authentication, caching, and advanced validation to prioritize core business logic.
-- Designed system for easy future extension (e.g., promo codes, user roles, wishlist, etc.)
-- Swagger/OpenAPI documentation
+- Focused on clean, testable architecture.
+- Lightweight stack: Spring Boot + H2 + Gradle.
+- Left out auth, caching, advanced validation to focus on core logic.
+- Designed for future extensibility (e.g., promo codes, roles).
+
 ---
 
 ## 🛠 Future Improvements
 
-- Authentication & user management
-- Caching book listings for performance
-- Dockerization for production-ready deployment
+- Add authentication & user roles
+- Cache book data for performance
+- Docker support for containerized deployment
 
 ---
 
 ## 📬 Contact
 
-Feel free to connect via [GitHub](https://github.com/indysingh) or [indy.arora@gmail.com].
+- GitHub: [https://github.com/indysingh](https://github.com/indysingh)
+- Email: [indy.arora@gmail.com](mailto:indy.arora@gmail.com)

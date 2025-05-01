@@ -1,13 +1,13 @@
-package com.sportygroup.bookstore.controller;
+package com.sportygroup.bookstore.book.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sportygroup.bookstore.book.controller.BookController;
 import com.sportygroup.bookstore.book.dto.BookType;
+import com.sportygroup.bookstore.purchase.dto.PurchaseRequest;
 import com.sportygroup.bookstore.purchase.dto.PurchaseResponse;
 import com.sportygroup.bookstore.book.model.Book;
 import com.sportygroup.bookstore.book.service.BookService;
 import com.sportygroup.bookstore.loyalty.service.LoyaltyService;
-import com.sportygroup.bookstore.service.PurchaseService;
+import com.sportygroup.bookstore.service.PurchaseServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +22,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -38,13 +39,13 @@ class BookControllerTest {
     private BookService bookService;
 
     @MockBean
-    private PurchaseService purchaseService;
+    private PurchaseServiceImpl purchaseService;
 
     @MockBean
     private LoyaltyService loyaltyService;
 
     @Test
-    void shouldReturnListOfBooksWithPagination() throws Exception {
+    void givenBooks_whenGetAllBooks_thenReturnPaginatedBooks() throws Exception {
         Book book1 = new Book(1L, "Test Book 1", BookType.REGULAR, 50.0);
         Book book2 = new Book(2L, "Test Book 2", BookType.NEW_RELEASE, 70.0);
         Page<Book> pagedBooks = new PageImpl<>(List.of(book1, book2), PageRequest.of(0, 10), 2);
@@ -61,8 +62,8 @@ class BookControllerTest {
     }
 
     @Test
-    void shouldReturnLoyaltyPoints() throws Exception {
-        Mockito.when(loyaltyService.getLoyaltyPoints(1L)).thenReturn(7);
+    void givenCustomerId_whenGetLoyaltyPoints_thenReturnPoints() throws Exception {
+        when(loyaltyService.getLoyaltyPoints(1L)).thenReturn(7);
 
         mockMvc.perform(get("/api/loyalty/1"))
                 .andExpect(status().isOk())
@@ -70,7 +71,7 @@ class BookControllerTest {
     }
 
     @Test
-    void shouldReturnPurchaseResponse() throws Exception {
+    void givenValidPurchaseRequest_whenPostPurchase_thenReturnPurchaseResponse() throws Exception {
         PurchaseResponse response = new PurchaseResponse(100.0, 5);
         Mockito.when(purchaseService.purchaseBooks(any(), any()))
                 .thenReturn(response);
@@ -85,5 +86,29 @@ class BookControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.totalPrice").value(100.0))
                 .andExpect(jsonPath("$.remainingLoyaltyPoints").value(5));
+    }
+
+    @Test
+    void givenInvalidPurchaseRequest_whenPostPurchase_thenReturnBadRequest() throws Exception {
+        // Empty list of bookIds and missing customerId to simulate validation failure
+        PurchaseRequest invalidRequest = new PurchaseRequest(List.of(), null);
+
+        mockMvc.perform(post("/api/purchase")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(invalidRequest)))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void givenPurchaseServiceFails_whenPostPurchase_thenReturnInternalServerError() throws Exception {
+        PurchaseRequest request = new PurchaseRequest(List.of(1L), 1L);
+
+        when(purchaseService.purchaseBooks(any(), any()))
+                .thenThrow(new RuntimeException("Database error"));
+
+        mockMvc.perform(post("/api/purchase")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isInternalServerError());
     }
 }

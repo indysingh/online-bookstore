@@ -1,6 +1,12 @@
 package com.sportygroup.bookstore.book.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class ErrorResponse {
+    // Getters and Setters
     private int statusCode;
     private String message;
     private String details;
@@ -11,28 +17,4 @@ public class ErrorResponse {
         this.details = details;
     }
 
-    // Getters and Setters
-    public int getStatusCode() {
-        return statusCode;
-    }
-
-    public void setStatusCode(int statusCode) {
-        this.statusCode = statusCode;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getDetails() {
-        return details;
-    }
-
-    public void setDetails(String details) {
-        this.details = details;
-    }
 }
