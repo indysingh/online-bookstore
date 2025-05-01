@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "bba4e109-5fea-40cd-87fe-e7f7690b8794",
+		"name": "SportyGroup",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2011177"
+	},
+	"item": [
+		{
+			"name": "online-bookstore",
+			"item": [
+				{
+					"name": "Add Books",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"title\": \"Spring Boot Essentials\",\n    \"type\": \"REGULAR\",\n    \"basePrice\": 40.0\n  },\n  {\n    \"title\": \"Java 21 Fundamentals\",\n    \"type\": \"NEW_RELEASE\",\n    \"basePrice\": 55.0\n  },\n  {\n    \"title\": \"Hibernate in Action\",\n    \"type\": \"OLD_EDITION\",\n    \"basePrice\": 35.0\n  },\n  {\n    \"title\": \"Design Patterns Deep Dive\",\n    \"type\": \"REGULAR\",\n    \"basePrice\": 50.0\n  },\n  {\n    \"title\": \"Effective Java\",\n    \"type\": \"OLD_EDITION\",\n    \"basePrice\": 45.0\n  },\n  {\n    \"title\": \"Kotlin for Java Devs\",\n    \"type\": \"REGULAR\",\n    \"basePrice\": 42.0\n  },\n  {\n    \"title\": \"The Pragmatic Programmer\",\n    \"type\": \"NEW_RELEASE\",\n    \"basePrice\": 60.0\n  },\n  {\n    \"title\": \"Clean Code\",\n    \"type\": \"OLD_EDITION\",\n    \"basePrice\": 38.0\n  },\n  {\n    \"title\": \"Refactoring\",\n    \"type\": \"REGULAR\",\n    \"basePrice\": 48.0\n  },\n  {\n    \"title\": \"Modern Microservices\",\n    \"type\": \"NEW_RELEASE\",\n    \"basePrice\": 70.0\n  },\n  {\n    \"title\": \"Pro Spring 5\",\n    \"type\": \"REGULAR\",\n    \"basePrice\": 47.5\n  },\n  {\n    \"title\": \"Microservices Patterns\",\n    \"type\": \"NEW_RELEASE\",\n    \"basePrice\": 68.0\n  },\n  {\n    \"title\": \"Reactive Programming with Spring\",\n    \"type\": \"REGULAR\",\n    \"basePrice\": 52.0\n  },\n  {\n    \"title\": \"Mastering Spring Boot 2.0\",\n    \"type\": \"OLD_EDITION\",\n    \"basePrice\": 39.0\n  },\n  {\n    \"title\": \"Spring in Action\",\n    \"type\": \"REGULAR\",\n    \"basePrice\": 55.0\n  },\n  {\n    \"title\": \"Learning Java\",\n    \"type\": \"NEW_RELEASE\",\n    \"basePrice\": 48.0\n  },\n  {\n    \"title\": \"Clean Architecture\",\n    \"type\": \"OLD_EDITION\",\n    \"basePrice\": 40.0\n  },\n  {\n    \"title\": \"Java Concurrency in Practice\",\n    \"type\": \"REGULAR\",\n    \"basePrice\": 60.0\n  },\n  {\n    \"title\": \"Spring Boot 2.x Cookbook\",\n    \"type\": \"NEW_RELEASE\",\n    \"basePrice\": 62.0\n  },\n  {\n    \"title\": \"The Art of Unit Testing\",\n    \"type\": \"OLD_EDITION\",\n    \"basePrice\": 37.0\n  },\n  {\n    \"title\": \"Spring Cloud in Action\",\n    \"type\": \"REGULAR\",\n    \"basePrice\": 58.0\n  },\n  {\n    \"title\": \"Spring Security in Action\",\n    \"type\": \"NEW_RELEASE\",\n    \"basePrice\": 59.0\n  },\n  {\n    \"title\": \"Practical Cloud-Native Java\",\n    \"type\": \"OLD_EDITION\",\n    \"basePrice\": 45.0\n  },\n  {\n    \"title\": \"Advanced Spring Boot\",\n    \"type\": \"REGULAR\",\n    \"basePrice\": 50.0\n  },\n  {\n    \"title\": \"Cloud Native Java\",\n    \"type\": \"NEW_RELEASE\",\n    \"basePrice\": 65.0\n  },\n  {\n    \"title\": \"Spring Boot in Action\",\n    \"type\": \"OLD_EDITION\",\n    \"basePrice\": 40.0\n  },\n  {\n    \"title\": \"Java Performance: The Definitive Guide\",\n    \"type\": \"REGULAR\",\n    \"basePrice\": 70.0\n  },\n  {\n    \"title\": \"Spring Data Cookbook\",\n    \"type\": \"NEW_RELEASE\",\n    \"basePrice\": 63.0\n  },\n  {\n    \"title\": \"Test-Driven Development: By Example\",\n    \"type\": \"OLD_EDITION\",\n    \"basePrice\": 39.0\n  },\n  {\n    \"title\": \"Spring 5 Recipes\",\n    \"type\": \"REGULAR\",\n    \"basePrice\": 55.0\n  },\n  {\n    \"title\": \"Domain-Driven Design\",\n    \"type\": \"NEW_RELEASE\",\n    \"basePrice\": 67.0\n  },\n  {\n    \"title\": \"Hands-On Microservices with Spring Boot 2.0\",\n    \"type\": \"OLD_EDITION\",\n    \"basePrice\": 42.0\n  },\n  {\n    \"title\": \"Java 8 in Action\",\n    \"type\": \"REGULAR\",\n    \"basePrice\": 48.0\n  },\n  {\n    \"title\": \"Reactive Java with Spring\",\n    \"type\": \"NEW_RELEASE\",\n    \"basePrice\": 60.0\n  },\n  {\n    \"title\": \"Spring Boot Admin\",\n    \"type\": \"OLD_EDITION\",\n    \"basePrice\": 35.0\n  },\n  {\n    \"title\": \"Building Microservices with Spring Boot\",\n    \"type\": \"REGULAR\",\n    \"basePrice\": 52.0\n  },\n  {\n    \"title\": \"Spring Microservices in Action\",\n    \"type\": \"NEW_RELEASE\",\n    \"basePrice\": 66.0\n  },\n  {\n    \"title\": \"Spring for Kubernetes\",\n    \"type\": \"OLD_EDITION\",\n    \"basePrice\": 46.0\n  },\n  {\n    \"title\": \"Spring Cloud for Architects\",\n    \"type\": \"REGULAR\",\n    \"basePrice\": 55.0\n  },\n  {\n    \"title\": \"Mastering Spring Security\",\n    \"type\": \"NEW_RELEASE\",\n    \"basePrice\": 58.0\n  },\n  {\n    \"title\": \"Java EE 8 Application Development\",\n    \"type\": \"OLD_EDITION\",\n    \"basePrice\": 50.0\n  }\n]\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Books",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Purchase Books",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"bookIds\": [1, 2, 3],\n  \"customerId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/purchase",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"purchase"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Customer",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Alice\",\n  \"email\": \"alice@alice.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Loyalty Points Per Customer",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Alice\",\n  \"email\": \"alice@alice.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/loyalty/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"loyalty",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "APIs to test online bookstore assigment"
+		}
+	]
+}

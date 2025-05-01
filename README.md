@@ -1,3 +1,4 @@
+
 # 📚 Online Bookstore Backend
 
 A simple backend REST API for managing books, purchases, and loyalty points in an online bookstore.
@@ -76,80 +77,65 @@ cd online-bookstore
 ./gradlew bootRun
 ```
 
-### 🌐 API Endpoints
+---
+
+## 📘 Postman Collection
+
+You can test the full API using the Postman collection located at:
+
+```
+src/main/resources/online-bookstore.postman_collection.json
+```
+
+Import it into Postman and follow the scenario steps below.
+
+---
+
+## 🔄 Example Usage Scenario
+
+1. **Add Books**
+  - Use `POST /api/books` with sample JSON (`resources/sample/books.json`)
+
+2. **Add a Customer**
+  - Use `POST /api/customers` with customer details
+
+3. **Purchase Books**
+  - Use `POST /api/purchase` with book IDs and customer ID (`resources/sample/purchase.json`)
+
+4. **Check Loyalty Points**
+  - Use `GET /api/loyalty/{customerId}` to verify points
+
+---
+
+## 🌐 API Endpoints
 
 Base URL: `http://localhost:8080/api`
 
-#### 📘 Books
+### Books
 
-- `GET /books` – Get all available books
-- `POST /books` – Add a new book
-  ```json
-  [
-    {
-      "title": "Spring Boot Essentials",
-      "type": "REGULAR",
-      "basePrice": 40.0
-    }
-  ]
-  ```
-- `PUT /books/{id}` – Update a book
-- `DELETE /books/{id}` – Delete a book
+- `GET /books` – Get paginated list of books
+- `POST /books` – Add new books
 
-#### 🛒 Purchase
+### Customer
+
+- `POST /customers` – Add a customer
+- `GET /customers` – Get all customers
+- `GET /customers/{id}` – Get customer by ID
+- `PATCH /customers/{id}` – Update customer
+- `DELETE /customers/{id}` – Delete customer
+
+### Purchase
 
 - `POST /purchase` – Purchase books and calculate total price
 
-  ```json
-  {
-    "bookIds": [1, 2, 3],
-    "customerId": 1
-  }
-  ```
-
-#### 🎁 Loyalty
+### Loyalty
 
 - `GET /loyalty/{customerId}` – Get customer loyalty points
 
-### 📑 API Documentation (Swagger/OpenAPI)
+### API Docs
 
 - Swagger UI: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 - OpenAPI JSON Spec: [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
-
----
-
-## 📊 H2 Console
-
-Access: `http://localhost:8080/h2-console`
-- JDBC URL: `jdbc:h2:mem:testdb`
-- Username: `sa`
-- Password: *(leave empty)*
-
----
-
-## 💡 Design & Architectural Decisions
-
-### ✅ SOLID Principles
-
-- **Single Responsibility**: Services separated by concern
-- **Open/Closed**: Strategy pattern allows pricing extensions
-- **Liskov Substitution**: Strategy interfaces respected
-- **Interface Segregation**: Interfaces expose only what's necessary
-- **Dependency Inversion**: Services injected via Spring
-
-### ✅ Patterns Used
-
-- **Strategy Pattern**: For dynamic pricing
-- **Factory Pattern**: For pricing strategy selection
-- **DTOs**: Request/response decoupling
-- **Repository Pattern**: Clean persistence with Spring Data JPA
-
-### 🧪 Testing
-
-- **JUnit 5** & **Mockito** for unit tests
-- Edge case validation (e.g., loyalty discounts)
-- `@WebMvcTest` for controllers
-- `@SpringBootTest` for integration
 
 ---
 
@@ -157,31 +143,27 @@ Access: `http://localhost:8080/h2-console`
 
 ```
 com.sportygroup.bookstore
-├── controller
-├── service
-├── model
-├── dto
-├── pricing       ← Strategy pattern here
-├── repository
+├── book (book CRUD & pricing)
+├── customer (customer CRUD)
+├── loyalty (loyalty logic)
+├── purchase (purchase processing)
+├── service (purchase service logic)
 └── BookstoreApplication.java
+resources/
+├── application.properties
+├── sample/
+│   ├── books.json
+│   └── purchase.json
+└── online-bookstore.postman_collection.json
 ```
 
 ---
 
 ## ✍️ Author Notes
 
-- Focused on clean, testable architecture.
-- Lightweight stack: Spring Boot + H2 + Gradle.
-- Left out auth, caching, advanced validation to focus on core logic.
-- Designed for future extensibility (e.g., promo codes, roles).
-
----
-
-## 🛠 Future Improvements
-
-- Add authentication & user roles
-- Cache book data for performance
-- Docker support for containerized deployment
+- Designed with extensibility in mind.
+- Modular services and DTOs.
+- Can be extended to include user auth, promo codes, etc.
 
 ---
 
